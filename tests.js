@@ -7,6 +7,8 @@ describe('Card', function () {
   });
 
 
+
+
   it('image URL works for 2-10', function() {
     var card = new Card(2, 'diamonds');
     expect(card.getImageUrl()).toEqual('images/2_of_diamonds.png');
@@ -53,9 +55,9 @@ describe('Card', function () {
 });
 
 
-
+// Hand
 describe('Hand', function() {
-    it('chekck if ace if itds one', function(){
+    it('check if ace is one', function(){
         var myHand = new Hand();
         myHand.addCard(4,'hearts');
         myHand.addCard(1,'hearts');
@@ -63,10 +65,19 @@ describe('Hand', function() {
         expect(myHand.getPoints()).toEqual(15);
     });
 
-    it('chekck if ace if itds one', function(){
+    it('check the getPoint function', function(){
         var myHand = new Hand();
         myHand.addCard(4,'hearts');
         myHand.addCard(12,'hearts');
         expect(myHand.getPoints()).toEqual(14);
+    });
+});
+
+
+// Deck
+describe('Deck', function() {
+    it('Check if pop is working', function(){
+        var myDeck = new Deck();
+        expect(myDeck.draw()).toEqual({point:13,suit:'diamonds'});
     });
 });

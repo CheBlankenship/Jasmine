@@ -6,6 +6,8 @@ function Card(point, suit){
 //     console.log("The card point is " + this.point + " and the suit is " + this.suit);
 // };
 
+
+// Card constractore
 Card.prototype.getImageUrl = function(){
     var card_number = this.point;
     // Define three names as array 0, 1, 2
@@ -29,6 +31,8 @@ Card.prototype.getImageUrl = function(){
 // var card = new Card(5, 'diamonds');
 // console.log(card.getImageUrl());
 
+
+// Hand constractore
 function Hand(){
     this.cardsInHand = [];
 }
@@ -54,3 +58,35 @@ Hand.prototype.getPoints = function() {
      }, 0);
      return sum;
 };
+
+
+// Deck constractore
+
+function Deck() {
+
+    // Define a empty array to push the values in.
+    this.deck = [];
+    var suits = ['spades', 'hearts', 'clubs', 'diamonds'];
+    // The first 4loop is 4 using to loop through 13 types of cards.
+    // The second 4loop is 4 looping through 4 type of marks.
+    for(var i=1; i<=13; i++){
+        for(var j=0;j<=3;j++){
+            // Nest the key and the value to the empty array 'deck'.
+            this.deck.push({'point':i, 'suit':suits[j]});
+        }
+    }
+
+}
+
+Deck.prototype.draw = function(){
+    var newCard = this.deck.pop();
+    return newCard;
+};
+
+// Deck.prototype.shuffle = function(){
+//
+// };
+//
+// Deck.prototype.numCardLeft = function() {
+//
+// };
